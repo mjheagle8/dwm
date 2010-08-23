@@ -1,0 +1,11 @@
+#!/bin/bash
+update=$(hg up | grep -c '0 files updated')
+if [[ $update == "1" ]]; then
+    echo "No updates found"
+else
+    echo "Updates applied"
+    echo "Importing config file"
+    cp patches/config.def.h ./
+    echo "Applying make patch"
+    patch < patches/general
+fi

@@ -8,7 +8,7 @@ static const char normfgcolor[]     = "#aaaaaa";
 static const char selbordercolor[]  = "#0055ff";
 static const char selbgcolor[]      = "#0055ff";
 static const char selfgcolor[]      = "#aaaaaa";
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
@@ -64,52 +64,56 @@ static const char *utub[] = { "urxvtc", "-title", "utub","-e", "utub-color", NUL
 static const char *watchvideo[] = { "/home/mhiggin5/.bin/watchvideo", NULL };
 static const char *suspend[] = { "/home/mhiggin5/.bin/watchvideo", NULL };
 static const char *lock[] = { "slock", NULL };
+static const char *kill[] = { "/home/mhiggin5/programs/bash/killdwm", NULL };
 
 static Key keys[] = {
-	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ Mod1Mask,                     XK_Tab,    focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ Mod1Mask,                     XK_F4,     killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-        { MODKEY,                       XK_z,      spawn,          {.v = mediaprev } },
-        { MODKEY,                       XK_c,      spawn,          {.v = mediatoggle } },
-        { MODKEY,                       XK_v,      spawn,          {.v = mediastop } },
-        { MODKEY,                       XK_b,      spawn,          {.v = medianext } },
-        { MODKEY,                       XK_n,      spawn,          {.v = ncmpcpp } },
-        { MODKEY,                       XK_e,      spawn,          {.v = mutt } },
-        { MODKEY,                       XK_i,      spawn,          {.v = weechat } },
-        { MODKEY,                       XK_g,      spawn,          {.v = chromium } },
-        { MODKEY,                       XK_w,      spawn,          {.v = jumanji } },
-        { MODKEY,                       XK_y,      spawn,          {.v = watchvideo } },
-        { MODKEY,                       XK_u,      spawn,          {.v = utub } },
-        { MODKEY,                       XK_l,      spawn,          {.v = lock } },
-        { MODKEY,                       XK_Next,   spawn,          {.v = voldn } },
-        { MODKEY,                       XK_Prior,  spawn,          {.v = volup } },
-        { Mod1Mask|ControlMask,         XK_Escape, spawn,          {.v = suspend } },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	/* modifier                     key             function             argument */
+	{ MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_Return,      spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_b,           togglebar,      {0} },
+	{ MODKEY,                       XK_j,           focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_k,           focusstack,     {.i = -1 } },
+	{ Mod1Mask,                     XK_Tab,         focusstack,     {.i = +1 } },
+	{ MODKEY,                       XK_h,           setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_l,           setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_Return,      zoom,           {0} },
+	{ MODKEY,                       XK_Tab,         view,           {0} },
+	{ MODKEY|ShiftMask,             XK_c,           killclient,     {0} },
+	{ Mod1Mask,                     XK_F4,          killclient,     {0} },
+	{ MODKEY,                       XK_t,           setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_f,           setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_m,           setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_space,       setlayout,      {0} },
+	{ MODKEY|ShiftMask,             XK_space,       togglefloating, {0} },
+	{ MODKEY,                       XK_0,           view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_0,           tag,            {.ui = ~0 } },
+	{ MODKEY,                       XK_comma,       focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_period,      focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,       tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period,      tagmon,         {.i = +1 } },
+        { MODKEY,                       XK_z,           spawn,          {.v = mediaprev } },
+        { MODKEY,                       XK_c,           spawn,          {.v = mediatoggle } },
+        { MODKEY,                       XK_v,           spawn,          {.v = mediastop } },
+        { MODKEY,                       XK_b,           spawn,          {.v = medianext } },
+        { MODKEY,                       XK_n,           spawn,          {.v = ncmpcpp } },
+        { MODKEY,                       XK_e,           spawn,          {.v = mutt } },
+        { MODKEY,                       XK_i,           spawn,          {.v = weechat } },
+        { MODKEY,                       XK_g,           spawn,          {.v = chromium } },
+        { MODKEY,                       XK_w,           spawn,          {.v = jumanji } },
+        { MODKEY,                       XK_y,           spawn,          {.v = watchvideo } },
+        { MODKEY,                       XK_u,           spawn,          {.v = utub } },
+        { MODKEY,                       XK_l,           spawn,          {.v = lock } },
+        { MODKEY,                       XK_Next,        spawn,          {.v = voldn } },
+        { MODKEY,                       XK_Prior,       spawn,          {.v = volup } },
+        { 0,                            0x1008ff11,     spawn,          {.v = voldn } },
+        { 0,                            0x1008ff13,     spawn,          {.v = volup } },
+        { Mod1Mask|ControlMask,         XK_Escape,      spawn,          {.v = suspend } },
+	TAGKEYS(                        XK_1,           0)
+	TAGKEYS(                        XK_2,           1)
+	TAGKEYS(                        XK_3,           2)
+	TAGKEYS(                        XK_4,           3)
+	{ MODKEY|ShiftMask,             XK_q,           quit,           {0} },
+	{ MODKEY|ControlMask,           XK_q,           spawn,          {.v = kill } },
 };
 
 /* button definitions */

@@ -65,6 +65,7 @@ static const char *watchvideo[] = { "/home/mhiggin5/.bin/watchvideo", NULL };
 static const char *suspend[] = { "/home/mhiggin5/.bin/watchvideo", NULL };
 static const char *lock[] = { "slock", NULL };
 static const char *kill[] = { "/home/mhiggin5/programs/bash/killdwm", NULL };
+static const char *desktop[] = { "urxvtc", "-title", "ssh", "-e", "ssh", "arch-phoenix", NULL };
 
 static Key keys[] = {
 	/* modifier                     key             function             argument */
@@ -108,6 +109,7 @@ static Key keys[] = {
         { 0,                            0x1008ff11,     spawn,          {.v = voldn } },
         { 0,                            0x1008ff13,     spawn,          {.v = volup } },
         { Mod1Mask|ControlMask,         XK_Escape,      spawn,          {.v = suspend } },
+        { MODKEY,                       XK_s,           spawn,          {.v = desktop } },
 	TAGKEYS(                        XK_1,           0)
 	TAGKEYS(                        XK_2,           1)
 	TAGKEYS(                        XK_3,           2)

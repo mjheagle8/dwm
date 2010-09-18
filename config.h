@@ -67,6 +67,9 @@ static const char *lock[] = { "slock", NULL };
 static const char *kill[] = { "/home/mhiggin5/programs/bash/killdwm", NULL };
 static const char *desktop[] = { "urxvtc", "-title", "ssh", "-e", "ssh", "arch-phoenix", NULL };
 static const char *msearch[] = { "urxvtc", "-title", "msearch", "-e", "/home/mhiggin5/programs/python/msearch.py", "-k", NULL };
+static const char *transdown[] = { "transset-df", "-p", "--min", "0.2", "--dec", "0.1", NULL };
+static const char *transup[] = { "transset-df", "-p", "--inc", "0.1", NULL };
+static const char *compositing[] = { "compositing", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier                     key             function             argument */
@@ -118,6 +121,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_4,           3)
 	{ MODKEY|ShiftMask,             XK_q,           quit,           {0} },
 	{ MODKEY|ControlMask,           XK_q,           spawn,          {.v = kill } },
+	{ MODKEY,                       XK_Down,        spawn,          {.v = transdown } },
+	{ MODKEY,                       XK_Up,          spawn,          {.v = transup } },
+	{ MODKEY,                       XK_o,           spawn,          {.v = compositing } },
 };
 
 /* button definitions */

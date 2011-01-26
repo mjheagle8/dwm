@@ -14,7 +14,7 @@ static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4" };
+static const char *tags[] = { "main", "web", "media", "chat", "other"};
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -30,8 +30,8 @@ static const Bool resizehints = True; /* True means respect size hints in tiled 
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[T]",      tile },    /* first entry is default */
+	{ "[F]",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -119,6 +119,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_2,           1)
 	TAGKEYS(                        XK_3,           2)
 	TAGKEYS(                        XK_4,           3)
+	TAGKEYS(                        XK_5,           4)
 	{ MODKEY|ShiftMask,             XK_q,           quit,           {0} },
 	{ MODKEY|ControlMask,           XK_q,           spawn,          {.v = kill } },
 	{ MODKEY,                       XK_Down,        spawn,          {.v = transdown } },

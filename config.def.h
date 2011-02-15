@@ -58,6 +58,10 @@ static const char *mediatoggle[] = { "/home/mhiggin5/.bin/mediacontrol", "pause"
 static const char *medianext[] = { "/home/mhiggin5/.bin/mediacontrol", "next", NULL };
 static const char *mediaprev[] = { "/home/mhiggin5/.bin/mediacontrol", "prev", NULL };
 static const char *mediastop[] = { "/home/mhiggin5/.bin/mediacontrol", "stop", NULL };
+static const char *mpdtoggle[] = { "mpc", "toggle", NULL };
+static const char *mpdnext[] = { "mpc", "next", NULL };
+static const char *mpdprev[] = { "mpc", "prev", NULL };
+static const char *mpdstop[] = { "mpc", "stop", NULL };
 static const char *volup[] = { "/home/mhiggin5/programs/bash/ossvol", "-i", "1", NULL };
 static const char *voldn[] = { "/home/mhiggin5/programs/bash/ossvol", "-d", "1", NULL };
 static const char *utub[] = { "urxvtc", "-title", "utub","-e", "utub-color", NULL };
@@ -75,7 +79,7 @@ static Key keys[] = {
 	/* modifier                     key             function             argument */
 	{ MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return,      spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_b,           togglebar,      {0} },
+	{ MODKEY|ShiftMask,             XK_t,           togglebar,      {0} },
 	{ MODKEY,                       XK_j,           focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,           focusstack,     {.i = -1 } },
 	{ Mod1Mask,                     XK_Tab,         focusstack,     {.i = +1 } },
@@ -83,7 +87,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,           setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,         view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,           killclient,     {0} },
+	{ MODKEY|ShiftMask,             XK_k,           killclient,     {0} },
 	{ Mod1Mask,                     XK_F4,          killclient,     {0} },
 	{ MODKEY,                       XK_t,           setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,           setlayout,      {.v = &layouts[1]} },
@@ -100,6 +104,10 @@ static Key keys[] = {
         { MODKEY,                       XK_c,           spawn,          {.v = mediatoggle } },
         { MODKEY,                       XK_v,           spawn,          {.v = mediastop } },
         { MODKEY,                       XK_b,           spawn,          {.v = medianext } },
+        { MODKEY|ShiftMask,             XK_z,           spawn,          {.v = mpdprev } },
+        { MODKEY|ShiftMask,             XK_c,           spawn,          {.v = mpdtoggle } },
+        { MODKEY|ShiftMask,             XK_v,           spawn,          {.v = mpdstop } },
+        { MODKEY|ShiftMask,             XK_b,           spawn,          {.v = mpdnext } },
         { MODKEY,                       XK_n,           spawn,          {.v = ncmpcpp } },
         { MODKEY,                       XK_e,           spawn,          {.v = mutt } },
         { MODKEY,                       XK_i,           spawn,          {.v = weechat } },

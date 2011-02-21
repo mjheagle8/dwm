@@ -109,9 +109,13 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_v,           spawn,          {.v = mpdstop } },
         { MODKEY|ShiftMask,             XK_b,           spawn,          {.v = mpdnext } },
         { MODKEY,                       XK_n,           spawn,          {.v = ncmpcpp } },
+	TAGKEYS(                        XK_n,           2)
         { MODKEY,                       XK_e,           spawn,          {.v = mutt } },
+	TAGKEYS(                        XK_e,           3)
         { MODKEY,                       XK_i,           spawn,          {.v = weechat } },
+	TAGKEYS(                        XK_i,           3)
         { MODKEY,                       XK_g,           spawn,          {.v = chromium } },
+	TAGKEYS(                        XK_g,           1)
         { MODKEY,                       XK_w,           spawn,          {.v = jumanji } },
         { MODKEY,                       XK_y,           spawn,          {.v = watchvideo } },
         { MODKEY,                       XK_u,           spawn,          {.v = utub } },

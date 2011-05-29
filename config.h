@@ -137,6 +137,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Down,        spawn,          {.v = transdown } },
 	{ MODKEY,                       XK_Up,          spawn,          {.v = transup } },
 	{ MODKEY,                       XK_o,           spawn,          {.v = compositing } },
+        { MODKEY,                       XK_Left,        cycle,          {.i = -1} },
+        { MODKEY,                       XK_Right,       cycle,          {.i = +1} },
+        { MODKEY|ShiftMask,             XK_Left,        tagcycle,       {.i = -1} },
+        { MODKEY|ShiftMask,             XK_Right,       tagcycle,       {.i = +1} },
 };
 
 /* button definitions */

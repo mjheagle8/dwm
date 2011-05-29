@@ -1,15 +1,3 @@
---- a/Makefile	Thu Aug 19 20:10:47 2010 -0500
-+++ b/Makefile	Thu Aug 19 20:31:47 2010 -0500
-@@ -20,7 +20,7 @@
- 
- ${OBJ}: config.h config.mk
- 
--config.h:
-+config.h: config.def.h
- 	@echo creating $@ from config.def.h
- 	@cp config.def.h $@
- 
-diff -r 65db5c466344 config.mk
 --- a/config.mk	Thu Aug 19 20:10:47 2010 -0500
 +++ b/config.mk	Thu Aug 19 20:31:47 2010 -0500
 @@ -4,11 +4,11 @@

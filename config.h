@@ -34,6 +34,8 @@ static const Layout layouts[] = {
 	{ "[T]",      tile },    /* first entry is default */
 	{ "[F]",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+ 	{ "[B]",      bstack },
+ 	{ "[b]",      bstackhoriz },
 };
 
 /* key definitions */
@@ -54,7 +56,6 @@ static const char *ncmpcpp[] = { "urxvtc", "-title", "ncmpcpp","-e", "ncmpcpp", 
 static const char *mutt[] = { "urxvtc", "-title", "mutt","-e", "screen", "-c", "/home/mhiggin5/.config/screen/email", "-S", "mutt", "-D", "-R", NULL };
 static const char *weechat[] = { "urxvtc", "-title", "weechat","-e", "screen", "-c", "/home/mhiggin5/.config/screen/chat", "-S", "weechat", "-D", "-R", NULL };
 static const char *chromium[] = { "chromium", NULL };
-static const char *jumanji[] = { "jumanji", NULL };
 static const char *mediatoggle[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-t", NULL };
 static const char *medianext[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-n", NULL };
 static const char *mediaprev[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-p", NULL };
@@ -93,6 +94,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,           setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,           setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,           setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_w,           setlayout,      {.v = &layouts[3]} },
+	{ MODKEY|ShiftMask,             XK_w,           setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,       setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,       togglefloating, {0} },
 	{ MODKEY,                       XK_0,           view,           {.ui = ~0 } },
@@ -117,7 +120,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_i,           3)
         { MODKEY,                       XK_g,           spawn,          {.v = chromium } },
 	TAGKEYS(                        XK_g,           1)
-        { MODKEY,                       XK_w,           spawn,          {.v = jumanji } },
         { MODKEY,                       XK_y,           spawn,          {.v = watchvideo } },
         { MODKEY,                       XK_u,           spawn,          {.v = utub } },
         { MODKEY|ShiftMask,             XK_l,           spawn,          {.v = lock } },

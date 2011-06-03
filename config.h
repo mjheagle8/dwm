@@ -69,7 +69,7 @@ static const char *volup[] = { "/home/mhiggin5/programs/bash/ossvol", "-i", "1",
 static const char *voldn[] = { "/home/mhiggin5/programs/bash/ossvol", "-d", "1", NULL };
 static const char *utub[] = { "urxvtc", "-title", "utub","-e", "utub-color", NULL };
 static const char *watchvideo[] = { "/home/mhiggin5/programs/python/flash-mplayer.py", NULL };
-static const char *suspend[] = { "/home/mhiggin5/.bin/stop", NULL };
+static const char *power[] = { "/home/mhiggin5/programs/bash/exit.sh", NULL };
 static const char *lock[] = { "slock", NULL };
 static const char *kill[] = { "/home/mhiggin5/programs/bash/killdwm", NULL };
 static const char *desktop[] = { "urxvtc", "-title", "ssh", "-e", "ssh", "arch-phoenix", NULL };
@@ -128,7 +128,7 @@ static Key keys[] = {
         { MODKEY,                       XK_Prior,       spawn,          {.v = volup } },
         { 0,                            0x1008ff11,     spawn,          {.v = voldn } },
         { 0,                            0x1008ff13,     spawn,          {.v = volup } },
-        { Mod1Mask|ControlMask,         XK_Escape,      spawn,          {.v = suspend } },
+        { MODKEY,                       XK_Delete,      spawn,          {.v = power } },
         { MODKEY,                       XK_s,           spawn,          {.v = desktop } },
         { MODKEY,                       XK_r,           spawn,          {.v = msearch } },
 	TAGKEYS(                        XK_1,           0)

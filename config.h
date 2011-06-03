@@ -77,6 +77,7 @@ static const char *msearch[] = { "urxvtc", "-title", "msearch", "-e", "/home/mhi
 static const char *transdown[] = { "transset-df", "-p", "--min", "0.2", "--dec", "0.1", NULL };
 static const char *transup[] = { "transset-df", "-p", "--inc", "0.1", NULL };
 static const char *compositing[] = { "compositing", "toggle", NULL };
+static const char *vifm[] = { "urxvtc", "-e", "vifm", NULL};
 
 static Key keys[] = {
 	/* modifier                     key             function             argument */
@@ -130,6 +131,7 @@ static Key keys[] = {
         { 0,                            0x1008ff13,     spawn,          {.v = volup } },
         { MODKEY,                       XK_Delete,      spawn,          {.v = power } },
         { MODKEY,                       XK_s,           spawn,          {.v = desktop } },
+        { MODKEY,                       XK_d,           spawn,          {.v = vifm } },
         { MODKEY,                       XK_r,           spawn,          {.v = msearch } },
 	TAGKEYS(                        XK_1,           0)
 	TAGKEYS(                        XK_2,           1)

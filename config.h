@@ -61,6 +61,7 @@ static const char *mediatoggle[] = { "/home/mhiggin5/programs/c/mediactrl/mediac
 static const char *medianext[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-n", NULL };
 static const char *mediaprev[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-p", NULL };
 static const char *mediastop[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-s", NULL };
+static const char *minbrowser[] = { "uzbl-tabbed", NULL };
 static const char *mpdtoggle[] = { "mpc", "toggle", NULL };
 static const char *mpdnext[] = { "mpc", "next", NULL };
 static const char *mpdprev[] = { "mpc", "prev", NULL };
@@ -96,8 +97,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,           setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,           setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,           setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_w,           setlayout,      {.v = &layouts[3]} },
-	{ MODKEY|ShiftMask,             XK_w,           setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,       nextlayout,     {0} },
 	{ MODKEY|ShiftMask,             XK_space,       togglefloating, {0} },
 	{ MODKEY,                       XK_0,           view,           {.ui = ~0 } },
@@ -133,6 +132,7 @@ static Key keys[] = {
         { MODKEY,                       XK_s,           spawn,          {.v = desktop } },
         { MODKEY,                       XK_d,           spawn,          {.v = vifm } },
         { MODKEY,                       XK_r,           spawn,          {.v = msearch } },
+	{ MODKEY,                       XK_w,           spawn,          {.v = minbrowser } },
 	TAGKEYS(                        XK_1,           0)
 	TAGKEYS(                        XK_2,           1)
 	TAGKEYS(                        XK_3,           2)

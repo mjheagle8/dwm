@@ -1,13 +1,16 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
+#define NUMCOLORS         4             // need at least 3
+static const char colors[NUMCOLORS][ColLast][8] = {
+   // border   foreground  background
+   { "#222222", "#aaaaaa", "#222222" },  // 0 = normal
+   { "#0055ff", "#aaaaaa", "#0055ff" },  // 1 = selected
+   { "#0066ff", "#0066ff", "#ffffff" },  // 2 = urgent/warning
+   { "#ff0000", "#ffffff", "#ff0000" },  // 3 = error
+   // add more here
+};
 static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#222222";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#aaaaaa";
-static const char selbordercolor[]  = "#0055ff";
-static const char selbgcolor[]      = "#0055ff";
-static const char selfgcolor[]      = "#aaaaaa";
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -51,7 +54,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
 static const char *termcmd[]  = { "urxvtc", NULL };
 static const char *ncmpcpp[] = { "urxvtc", "-title", "ncmpcpp","-e", "ncmpcpp", NULL };
 static const char *mutt[] = { "urxvtc", "-title", "mutt","-e", "/home/mhiggin5/.config/tmux/mail.sh", NULL };

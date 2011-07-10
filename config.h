@@ -1,15 +1,19 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-#define NUMCOLORS         4             // need at least 3
+#define NUMCOLORS 8 // need at least 3
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border   foreground  background
-   { "#222222", "#aaaaaa", "#222222" },  // 0 = normal
-   { "#0055ff", "#aaaaaa", "#0055ff" },  // 1 = selected
-   { "#0066ff", "#0066ff", "#ffffff" },  // 2 = urgent/warning
-   { "#ff0000", "#ffffff", "#ff0000" },  // 3 = error
-   // add more here
+   { "#222222", "#aaaaaa", "#222222" }, // 0 = normal
+   { "#0055FF", "#aaaaaa", "#0055FF" }, // 1 = selected
+   { "#222222", "#BF4D80", "#222222" }, // 2 = red
+   { "#222222", "#53A6A6", "#222222" }, // 3 = green
+   { "#222222", "#A270A3", "#222222" }, // 4 = yellow
+   { "#222222", "#0055FF", "#222222" }, // 5 = blue
+   { "#222222", "#7E62B3", "#222222" }, // 6 = magenta
+   { "#222222", "#C0C0C0", "#222222" }, // 7 = white
 };
+
 static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */

@@ -14,7 +14,7 @@ static const char colors[NUMCOLORS][ColLast][8] = {
    { "#222222", "#C0C0C0", "#222222" }, // 7 = white
 };
 
-static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
+static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */

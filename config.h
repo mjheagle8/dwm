@@ -4,15 +4,15 @@
 #define NUMCOLORS 8 // need at least 3
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border   foreground  background
-   { "#222222", "#aaaaaa", "#222222" }, // 0 = normal
-   { "#0055FF", "#aaaaaa", "#0055FF" }, // 1 = selected
-   { "#222222", "#BF4D80", "#222222" }, // 2 = red
-   { "#222222", "#53A6A6", "#222222" }, // 3 = cyan
-   { "#222222", "#41A94A", "#222222" }, // 4 = green
+   { "#222222", "#AAAAAA", "#222222" }, // 0 = normal
+   { "#0055FF", "#AAAAAA", "#0055FF" }, // 1 = selected
+   { "#222222", "#FF6565", "#222222" }, // 2 = red
+   { "#222222", "#89B6E2", "#222222" }, // 3 = cyan
+   { "#222222", "#93D44F", "#222222" }, // 4 = green
 //   { "#222222", "#B8C758", "#222222" }, // 4 = yellow
    { "#222222", "#0055FF", "#222222" }, // 5 = blue
-   { "#222222", "#7E62B3", "#222222" }, // 6 = magenta
-   { "#222222", "#C0C0C0", "#222222" }, // 7 = white
+   { "#222222", "#CE5C00", "#222222" }, // 6 = magenta
+   { "#222222", "#CCCCCC", "#222222" }, // 7 = white
 };
 
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";

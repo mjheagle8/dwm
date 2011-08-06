@@ -5,7 +5,7 @@
 static const char colors[NUMCOLORS][ColLast][8] = {
    // border   foreground  background
    { "#222222", "#AAAAAA", "#222222" }, // 0 = normal
-   { "#222222", "#0055FF", "#222222" }, // 1 = selected
+   { "#0055FF", "#0055FF", "#222222" }, // 1 = selected
    { "#222222", "#FF6565", "#222222" }, // 2 = red
    { "#222222", "#89B6E2", "#222222" }, // 3 = cyan
    { "#222222", "#93D44F", "#222222" }, // 4 = green

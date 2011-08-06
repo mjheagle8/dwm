@@ -11,7 +11,7 @@ static const char colors[NUMCOLORS][ColLast][8] = {
    { "#222222", "#93D44F", "#222222" }, // 4 = green
    { "#222222", "#0055FF", "#222222" }, // 5 = blue
    { "#222222", "#CE5C00", "#222222" }, // 6 = magenta
-   { "#222222", "#CCCCCC", "#222222" }, // 7 = white
+   { "#222222", "#EAB93D", "#222222" }, // 7 = yellow
 };
 
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";

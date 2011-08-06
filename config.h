@@ -9,28 +9,28 @@ static const char colors[NUMCOLORS][ColLast][8] = {
    { "#222222", "#FF6565", "#222222" }, // 2 = red
    { "#222222", "#89B6E2", "#222222" }, // 3 = cyan
    { "#222222", "#93D44F", "#222222" }, // 4 = green
-//   { "#222222", "#B8C758", "#222222" }, // 4 = yellow
    { "#222222", "#0055FF", "#222222" }, // 5 = blue
    { "#222222", "#CE5C00", "#222222" }, // 6 = magenta
    { "#222222", "#CCCCCC", "#222222" }, // 7 = white
 };
 
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
-//static Bool useicons                = True;     /* false means use ascii symbols */
 
 /* tagging */
-static const char *tags[] = { "main", "web", "media", "chat", "other"};
+static const char *tags[] = { "web", "media", "msg", "4", "5"};
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Chromium", NULL,       NULL,       1 << 1,       False,       -1 },
-	{ NULL,       NULL,       "ncmpcpp",  1 << 2,       False,       -1 },
-	{ NULL,       NULL,       "mutt",     1 << 3,       False,       -1 },
-	{ NULL,       NULL,       "weechat",  1 << 3,       False,       -1 },
+	{ "Chromium", NULL,       NULL,       1 << 0,       False,       -1 },
+	{ NULL,       NULL,       "ncmpcpp",  1 << 1,       False,       -1 },
+	{ NULL,       NULL,       "utub",     1 << 1,       False,       -1 },
+	{ NULL,       NULL,       "fmplayer", 1 << 1,       False,       -1 },
+	{ NULL,       NULL,       "mutt",     1 << 2,       False,       -1 },
+	{ NULL,       NULL,       "weechat",  1 << 2,       False,       -1 },
 };
 
 /* layout(s) */
@@ -77,7 +77,7 @@ static const char *mpdstop[] = { "mpc", "stop", NULL };
 static const char *volup[] = { "/home/mhiggin5/programs/bash/ossvol", "-i", "1", NULL };
 static const char *voldn[] = { "/home/mhiggin5/programs/bash/ossvol", "-d", "1", NULL };
 static const char *utub[] = { "urxvtc", "-title", "utub","-e", "utub-curses", NULL };
-static const char *watchvideo[] = { "urxvtc", "-title", "flash-mplayer", "-e", "/home/mhiggin5/programs/python/flash-mplayer.py", NULL };
+static const char *watchvideo[] = { "urxvtc", "-title", "fmplayer", "-e", "/home/mhiggin5/programs/python/flash-mplayer.py", NULL };
 static const char *power[] = { "/home/mhiggin5/programs/bash/exit.sh", NULL };
 static const char *lock[] = { "slock", NULL };
 static const char *kill[] = { "/home/mhiggin5/programs/bash/killdwm", NULL };
@@ -91,14 +91,14 @@ static const char *vifm[] = { "urxvtc", "-e", "vifm", NULL};
 static Key keys[] = {
 	/* modifier                     key             function             argument */
 	{ MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return,      spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Return,      spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_t,           togglebar,      {0} },
 	{ MODKEY,                       XK_j,           focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,           focusstack,     {.i = -1 } },
 	{ Mod1Mask,                     XK_Tab,         focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_h,           setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,           setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return,      zoom,           {0} },
+	{ MODKEY|ShiftMask,             XK_Return,      zoom,           {0} },
 	{ MODKEY,                       XK_Tab,         view,           {0} },
 	{ MODKEY|ShiftMask,             XK_k,           killclient,     {0} },
 	{ Mod1Mask,                     XK_F4,          killclient,     {0} },
@@ -122,15 +122,17 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_v,           spawn,          {.v = mpdstop } },
         { MODKEY|ShiftMask,             XK_b,           spawn,          {.v = mpdnext } },
         { MODKEY,                       XK_n,           spawn,          {.v = ncmpcpp } },
-	TAGKEYS(                        XK_n,           2)
+	TAGKEYS(                        XK_n,           1)
         { MODKEY,                       XK_e,           spawn,          {.v = mutt } },
-	TAGKEYS(                        XK_e,           3)
+	TAGKEYS(                        XK_e,           2)
         { MODKEY,                       XK_i,           spawn,          {.v = weechat } },
-	TAGKEYS(                        XK_i,           3)
+	TAGKEYS(                        XK_i,           2)
         { MODKEY,                       XK_g,           spawn,          {.v = chromium } },
-	TAGKEYS(                        XK_g,           1)
+	TAGKEYS(                        XK_g,           0)
         { MODKEY,                       XK_y,           spawn,          {.v = watchvideo } },
+	TAGKEYS(                        XK_y,           1)
         { MODKEY,                       XK_u,           spawn,          {.v = utub } },
+	TAGKEYS(                        XK_u,           1)
         { MODKEY|ShiftMask,             XK_l,           spawn,          {.v = lock } },
         { MODKEY,                       XK_Next,        spawn,          {.v = voldn } },
         { MODKEY,                       XK_Prior,       spawn,          {.v = volup } },

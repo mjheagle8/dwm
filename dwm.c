@@ -1700,13 +1700,26 @@ tagmon(const Arg *arg) {
 
 int
 textnw(const char *text, unsigned int len) {
-	XRectangle r;
-
-	if(dc.font.set) {
-		XmbTextExtents(dc.font.set, text, len, NULL, &r);
-		return r.width;
-	}
-	return XTextWidth(dc.font.xfont, text, len);
+         // remove non-printing color codes before calculating width
+         char *ptr = (char *) text;
+         unsigned int i, ibuf, lenbuf=len;
+         char buf[len+1];
+         XRectangle r;
+         for(i=0, ibuf=0; *ptr && i<len; i++, ptr++) {
+                 if(*ptr <= NUMCOLORS && *ptr > 0) {
+                         if (i < len) { lenbuf--; }
+                 } else {
+                         buf[ibuf]=*ptr;
+                         ibuf++;
+                 }
+         }
+         buf[ibuf]=0;
+ 
+         if(dc.font.set) {
+                 XmbTextExtents(dc.font.set, buf, lenbuf, NULL, &r);
+                 return r.width;
+         }
+         return XTextWidth(dc.font.xfont, buf, lenbuf);
 }
 
 void

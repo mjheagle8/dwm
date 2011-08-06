@@ -29,6 +29,7 @@ static const Rule rules[] = {
 	{ NULL,       NULL,       "ncmpcpp",  1 << 1,       False,       -1 },
 	{ NULL,       NULL,       "utub",     1 << 1,       False,       -1 },
 	{ NULL,       NULL,       "fmplayer", 1 << 1,       False,       -1 },
+	{ NULL,       NULL,       "msearch",  1 << 1,       False,       -1 },
 	{ NULL,       NULL,       "mutt",     1 << 2,       False,       -1 },
 	{ NULL,       NULL,       "weechat",  1 << 2,       False,       -1 },
 };
@@ -61,10 +62,10 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
 static const char *termcmd[]  = { "urxvtc", NULL };
-static const char *ncmpcpp[] = { "urxvtc", "-title", "ncmpcpp","-e", "ncmpcpp", NULL };
-static const char *mutt[] = { "urxvtc", "-title", "mutt","-e", "/home/mhiggin5/.config/tmux/mail.sh", NULL };
-static const char *weechat[] = { "urxvtc", "-title", "weechat","-e", "/home/mhiggin5/.config/tmux/chat.sh", NULL };
-static const char *chromium[] = { "chromium", NULL };
+static const char *ncmpcpp[] = { "/home/mhiggin5/programs/bash/launch.sh", "ncmpcpp", NULL };
+static const char *mutt[] = { "/home/mhiggin5/programs/bash/launch.sh", "mutt", NULL };
+static const char *weechat[] = { "/home/mhiggin5/programs/bash/launch.sh","weechat", NULL };
+static const char *chromium[] = { "/home/mhiggin5/programs/bash/launch.sh", "chromium", NULL };
 static const char *mediatoggle[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-t", NULL };
 static const char *medianext[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-n", NULL };
 static const char *mediaprev[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-p", NULL };
@@ -76,7 +77,7 @@ static const char *mpdprev[] = { "mpc", "prev", NULL };
 static const char *mpdstop[] = { "mpc", "stop", NULL };
 static const char *volup[] = { "/home/mhiggin5/programs/bash/ossvol", "-i", "1", NULL };
 static const char *voldn[] = { "/home/mhiggin5/programs/bash/ossvol", "-d", "1", NULL };
-static const char *utub[] = { "urxvtc", "-title", "utub","-e", "utub-curses", NULL };
+static const char *utub[] = { "urxvtc", "-title", "utub", "-e", "utub-curses", NULL };
 static const char *watchvideo[] = { "urxvtc", "-title", "fmplayer", "-e", "/home/mhiggin5/programs/python/flash-mplayer.py", NULL };
 static const char *power[] = { "/home/mhiggin5/programs/bash/exit.sh", NULL };
 static const char *lock[] = { "slock", NULL };
@@ -142,6 +143,7 @@ static Key keys[] = {
         { MODKEY,                       XK_s,           spawn,          {.v = desktop } },
         { MODKEY,                       XK_d,           spawn,          {.v = vifm } },
         { MODKEY,                       XK_r,           spawn,          {.v = msearch } },
+	TAGKEYS(                        XK_r,           1)
 	{ MODKEY,                       XK_w,           spawn,          {.v = minbrowser } },
 	TAGKEYS(                        XK_1,           0)
 	TAGKEYS(                        XK_2,           1)

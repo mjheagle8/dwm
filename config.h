@@ -124,18 +124,18 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_v,           spawn,          {.v = mpdstop } },
         { MODKEY|ShiftMask,             XK_b,           spawn,          {.v = mpdnext } },
         { MODKEY,                       XK_n,           spawn,          {.v = ncmpcpp } },
-	TAGKEYS(                        XK_n,           1)
+	{ MODKEY,                       XK_n,           view,           {.ui = 1 << 1} }, 
         { MODKEY,                       XK_e,           spawn,          {.v = mutt } },
-	TAGKEYS(                        XK_e,           2)
+	{ MODKEY,                       XK_e,           view,           {.ui = 1 << 2} }, 
         { MODKEY,                       XK_i,           spawn,          {.v = weechat } },
-	TAGKEYS(                        XK_i,           2)
+	{ MODKEY,                       XK_i,           view,           {.ui = 1 << 2} }, 
         { MODKEY,                       XK_g,           spawn,          {.v = chromium } },
-	TAGKEYS(                        XK_g,           0)
+	{ MODKEY,                       XK_g,           view,           {.ui = 1 << 0} }, 
         { MODKEY|ShiftMask,             XK_y,           spawn,          {.v = dmenuwatchvideo } },
         { MODKEY,                       XK_y,           spawn,          {.v = watchvideo } },
-	TAGKEYS(                        XK_y,           1)
+	{ MODKEY,                       XK_y,           view,           {.ui = 1 << 1} }, 
         { MODKEY,                       XK_u,           spawn,          {.v = utub } },
-	TAGKEYS(                        XK_u,           1)
+	{ MODKEY,                       XK_u,           view,           {.ui = 1 << 1} }, 
         { MODKEY|ShiftMask,             XK_l,           spawn,          {.v = lock } },
         { MODKEY,                       XK_Next,        spawn,          {.v = voldn } },
         { MODKEY,                       XK_Prior,       spawn,          {.v = volup } },
@@ -145,7 +145,7 @@ static Key keys[] = {
         { MODKEY,                       XK_s,           spawn,          {.v = desktop } },
         { MODKEY,                       XK_d,           spawn,          {.v = vifm } },
         { MODKEY,                       XK_r,           spawn,          {.v = msearch } },
-	TAGKEYS(                        XK_r,           1)
+	{ MODKEY,                       XK_r,           view,           {.ui = 1 << 1} }, 
 	{ MODKEY,                       XK_w,           spawn,          {.v = minbrowser } },
 	TAGKEYS(                        XK_1,           0)
 	TAGKEYS(                        XK_2,           1)

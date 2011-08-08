@@ -79,6 +79,7 @@ static const char *volup[] = { "/home/mhiggin5/programs/bash/ossvol", "-i", "1",
 static const char *voldn[] = { "/home/mhiggin5/programs/bash/ossvol", "-d", "1", NULL };
 static const char *utub[] = { "urxvtc", "-title", "utub", "-e", "utub-curses", NULL };
 static const char *watchvideo[] = { "urxvtc", "-title", "fmplayer", "-e", "/home/mhiggin5/programs/python/flash-mplayer.py", NULL };
+static const char *dmenuwatchvideo[] = {"/home/mhiggin5/programs/bash/flash-video-dmenu.sh", NULL };
 static const char *power[] = { "/home/mhiggin5/programs/bash/exit.sh", NULL };
 static const char *lock[] = { "slock", NULL };
 static const char *kill[] = { "/home/mhiggin5/programs/bash/killdwm", NULL };
@@ -130,6 +131,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_i,           2)
         { MODKEY,                       XK_g,           spawn,          {.v = chromium } },
 	TAGKEYS(                        XK_g,           0)
+        { MODKEY|ShiftMask,             XK_y,           spawn,          {.v = dmenuwatchvideo } },
         { MODKEY,                       XK_y,           spawn,          {.v = watchvideo } },
 	TAGKEYS(                        XK_y,           1)
         { MODKEY,                       XK_u,           spawn,          {.v = utub } },

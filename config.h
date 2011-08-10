@@ -22,6 +22,7 @@ static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
 static const char *tags[] = { "web", "media", "msg", "4", "5"};
+static const int taglayouts[] = {2, 2, 0, 0, 0};
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */

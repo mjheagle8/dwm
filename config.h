@@ -71,7 +71,7 @@ static const char *mediatoggle[] = { "/home/mhiggin5/programs/c/mediactrl/mediac
 static const char *medianext[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-n", NULL };
 static const char *mediaprev[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-p", NULL };
 static const char *mediastop[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-s", NULL };
-static const char *minbrowser[] = { "jumanji", NULL };
+static const char *minbrowser[] = { "luakit", NULL };
 static const char *mpdtoggle[] = { "mpc", "toggle", NULL };
 static const char *mpdnext[] = { "mpc", "next", NULL };
 static const char *mpdprev[] = { "mpc", "prev", NULL };
@@ -180,4 +180,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-

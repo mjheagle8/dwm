@@ -74,6 +74,7 @@ static const char *transup[] = { "transset-df", "-p", "--inc", "0.1", NULL };
 
 /* programs */
 static const char *desktop[] = { "urxvtc", "-title", "ssh", "-e", "/home/mhiggin5/programs/bash/ssh-arch-phoenix.sh", NULL };
+static const char *htop[] = { "urxvtc", "-title", "htop", "-e", "htop", NULL};
 static const char *mutt[] = { "/home/mhiggin5/programs/bash/launch.sh", "mutt", NULL };
 static const char *weechat[] = { "/home/mhiggin5/programs/bash/launch.sh","weechat", NULL };
 static const char *chromium[] = { "/home/mhiggin5/programs/bash/launch.sh", "chromium", NULL };
@@ -155,6 +156,7 @@ static Key keys[] = {
         { MODKEY,                       XK_r,           spawn,          {.v = msearch } },
 	{ MODKEY,                       XK_r,           view,           {.ui = 1 << 1} }, 
 	{ MODKEY,                       XK_w,           spawn,          {.v = minbrowser } },
+        { MODKEY,                       XK_q,           spawn,          {.v = htop } },
 	TAGKEYS(                        XK_1,           0)
 	TAGKEYS(                        XK_2,           1)
 	TAGKEYS(                        XK_3,           2)

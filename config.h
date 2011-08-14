@@ -14,6 +14,7 @@ static const char colors[NUMCOLORS][ColLast][8] = {
    { "#222222", "#EAB93D", "#222222" }, // 7 = yellow
 };
 
+/* dwm vars */
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -24,6 +25,7 @@ static const Bool topbar            = True;     /* False means bottom bar */
 static const char *tags[] = { "web", "media", "msg", "4", "5"};
 static const int taglayouts[] = {2, 2, 0, 0, 0};
 
+/* rules */
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Chromium", NULL,       NULL,       1 << 0,       False,       -1 },
@@ -38,7 +40,6 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
 static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
-
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[T]",      tile },    /* first entry is default */
@@ -61,36 +62,42 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
+/* dwm utils */
+static const char *compositing[] = { "compositing", "toggle", NULL };
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
+static const char *kill[] = { "/home/mhiggin5/programs/bash/killdwm", NULL };
+static const char *lock[] = { "slock", NULL };
+static const char *power[] = { "/home/mhiggin5/programs/bash/exit.sh", NULL };
 static const char *termcmd[]  = { "urxvtc", NULL };
-static const char *ncmpcpp[] = { "/home/mhiggin5/programs/bash/launch.sh", "ncmpcpp", NULL };
+static const char *transdown[] = { "transset-df", "-p", "--min", "0.2", "--dec", "0.1", NULL };
+static const char *transup[] = { "transset-df", "-p", "--inc", "0.1", NULL };
+
+/* programs */
+static const char *desktop[] = { "urxvtc", "-title", "ssh", "-e", "/home/mhiggin5/programs/bash/ssh-arch-phoenix.sh", NULL };
 static const char *mutt[] = { "/home/mhiggin5/programs/bash/launch.sh", "mutt", NULL };
 static const char *weechat[] = { "/home/mhiggin5/programs/bash/launch.sh","weechat", NULL };
 static const char *chromium[] = { "/home/mhiggin5/programs/bash/launch.sh", "chromium", NULL };
-static const char *mediatoggle[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-t", NULL };
+static const char *minbrowser[] = { "luakit", NULL };
+static const char *vifm[] = { "urxvtc", "-e", "vifm", NULL};
+
+/* media utils */
+static const char *dmenuwatchvideo[] = {"/home/mhiggin5/programs/bash/flash-video-dmenu.sh", NULL };
 static const char *medianext[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-n", NULL };
 static const char *mediaprev[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-p", NULL };
 static const char *mediastop[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-s", NULL };
-static const char *minbrowser[] = { "luakit", NULL };
-static const char *mpdtoggle[] = { "mpc", "toggle", NULL };
+static const char *mediatoggle[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-t", NULL };
 static const char *mpdnext[] = { "mpc", "next", NULL };
 static const char *mpdprev[] = { "mpc", "prev", NULL };
 static const char *mpdstop[] = { "mpc", "stop", NULL };
+static const char *mpdtoggle[] = { "mpc", "toggle", NULL };
+static const char *msearch[] = { "urxvtc", "-title", "msearch", "-e", "/home/mhiggin5/programs/python/msearch.py", "-k", NULL };
+static const char *ncmpcpp[] = { "/home/mhiggin5/programs/bash/launch.sh", "ncmpcpp", NULL };
+static const char *utub[] = { "urxvtc", "-title", "utub", "-e", "utub-curses", NULL };
 static const char *volup[] = { "/home/mhiggin5/programs/bash/ossvol", "-i", "1", NULL };
 static const char *voldn[] = { "/home/mhiggin5/programs/bash/ossvol", "-d", "1", NULL };
-static const char *utub[] = { "urxvtc", "-title", "utub", "-e", "utub-curses", NULL };
 static const char *watchvideo[] = { "urxvtc", "-title", "fmplayer", "-e", "/home/mhiggin5/programs/python/flash-mplayer.py", NULL };
-static const char *dmenuwatchvideo[] = {"/home/mhiggin5/programs/bash/flash-video-dmenu.sh", NULL };
-static const char *power[] = { "/home/mhiggin5/programs/bash/exit.sh", NULL };
-static const char *lock[] = { "slock", NULL };
-static const char *kill[] = { "/home/mhiggin5/programs/bash/killdwm", NULL };
-static const char *desktop[] = { "urxvtc", "-title", "ssh", "-e", "/home/mhiggin5/programs/bash/ssh-arch-phoenix.sh", NULL };
-static const char *msearch[] = { "urxvtc", "-title", "msearch", "-e", "/home/mhiggin5/programs/python/msearch.py", "-k", NULL };
-static const char *transdown[] = { "transset-df", "-p", "--min", "0.2", "--dec", "0.1", NULL };
-static const char *transup[] = { "transset-df", "-p", "--inc", "0.1", NULL };
-static const char *compositing[] = { "compositing", "toggle", NULL };
-static const char *vifm[] = { "urxvtc", "-e", "vifm", NULL};
 
+/* keybinds */
 static Key keys[] = {
 	/* modifier                     key             function             argument */
 	{ MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },
@@ -164,7 +171,7 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_Right,       tagcycle,       {.i = +1} },
 };
 
-/* button definitions */
+/* mouse binds */
 /* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */

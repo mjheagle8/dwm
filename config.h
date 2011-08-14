@@ -101,29 +101,67 @@ static const char *watchvideo[] = { "urxvtc", "-title", "fmplayer", "-e", "/home
 /* keybinds */
 static Key keys[] = {
 	/* modifier                     key             function             argument */
-	{ MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return,      spawn,          {.v = termcmd } },
+        /* general dwm control binds */
 	{ MODKEY|ShiftMask,             XK_t,           togglebar,      {0} },
+	{ MODKEY|ShiftMask,             XK_k,           killclient,     {0} },
+	{ Mod1Mask,                     XK_F4,          killclient,     {0} },
+        { MODKEY|ShiftMask,             XK_l,           spawn,          {.v = lock } },
+        { MODKEY,                       XK_Delete,      spawn,          {.v = power } },
+	{ MODKEY|ControlMask,           XK_q,           spawn,          {.v = kill } },
+	{ MODKEY|ShiftMask,             XK_q,           quit,           {0} },
+	{ MODKEY,                       XK_Down,        spawn,          {.v = transdown } },
+	{ MODKEY,                       XK_Up,          spawn,          {.v = transup } },
+	{ MODKEY,                       XK_o,           spawn,          {.v = compositing } },
+        /* monitor binds */
+	{ MODKEY,                       XK_comma,       focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_period,      focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,       tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period,      tagmon,         {.i = +1 } },
+        /* window control binds */
 	{ MODKEY,                       XK_j,           focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,           focusstack,     {.i = -1 } },
 	{ Mod1Mask,                     XK_Tab,         focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_h,           setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,           setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return,      zoom,           {0} },
+        /* tag binds */
+	TAGKEYS(                        XK_1,           0)
+	TAGKEYS(                        XK_2,           1)
+	TAGKEYS(                        XK_3,           2)
+	TAGKEYS(                        XK_4,           3)
+	TAGKEYS(                        XK_5,           4)
 	{ MODKEY,                       XK_Tab,         view,           {0} },
-	{ MODKEY|ShiftMask,             XK_k,           killclient,     {0} },
-	{ Mod1Mask,                     XK_F4,          killclient,     {0} },
+	{ MODKEY,                       XK_0,           view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_0,           tag,            {.ui = ~0 } },
+	{ MODKEY,                       XK_n,           view,           {.ui = 1 << 1} }, /* move with ncmpcpp launch */
+	{ MODKEY,                       XK_e,           view,           {.ui = 1 << 2} }, /* move with mail launch */
+	{ MODKEY,                       XK_i,           view,           {.ui = 1 << 2} }, /* move with chat launch */
+	{ MODKEY,                       XK_g,           view,           {.ui = 1 << 0} }, /* move with browser launch */
+	{ MODKEY,                       XK_y,           view,           {.ui = 1 << 1} }, /* move with fmplayer launch */
+	{ MODKEY,                       XK_u,           view,           {.ui = 1 << 1} }, /* move with utub launch */
+	{ MODKEY,                       XK_r,           view,           {.ui = 1 << 1} }, /* move with msearch launch */
+        { MODKEY,                       XK_Left,        cycle,          {.i = -1} },
+        { MODKEY,                       XK_Right,       cycle,          {.i = +1} },
+        { MODKEY|ShiftMask,             XK_Left,        tagcycle,       {.i = -1} },
+        { MODKEY|ShiftMask,             XK_Right,       tagcycle,       {.i = +1} },
+        /* layout binds */
 	{ MODKEY,                       XK_t,           setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,           setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,           setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,       nextlayout,     {0} },
 	{ MODKEY|ShiftMask,             XK_space,       togglefloating, {0} },
-	{ MODKEY,                       XK_0,           view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,           tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,       focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period,      focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,       tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period,      tagmon,         {.i = +1 } },
+        /* launcher binds */
+        { MODKEY,                       XK_g,           spawn,          {.v = chromium } },
+        { MODKEY,                       XK_s,           spawn,          {.v = desktop } },
+	{ MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },
+        { MODKEY,                       XK_q,           spawn,          {.v = htop } },
+	{ MODKEY,                       XK_w,           spawn,          {.v = minbrowser } },
+        { MODKEY,                       XK_e,           spawn,          {.v = mutt } },
+	{ MODKEY,                       XK_Return,      spawn,          {.v = termcmd } },
+        { MODKEY,                       XK_d,           spawn,          {.v = vifm } },
+        { MODKEY,                       XK_i,           spawn,          {.v = weechat } },
+        /* media keybinds */
+        { MODKEY|ShiftMask,             XK_y,           spawn,          {.v = dmenuwatchvideo } },
         { MODKEY,                       XK_z,           spawn,          {.v = mediaprev } },
         { MODKEY,                       XK_c,           spawn,          {.v = mediatoggle } },
         { MODKEY,                       XK_v,           spawn,          {.v = mediastop } },
@@ -132,45 +170,14 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_c,           spawn,          {.v = mpdtoggle } },
         { MODKEY|ShiftMask,             XK_v,           spawn,          {.v = mpdstop } },
         { MODKEY|ShiftMask,             XK_b,           spawn,          {.v = mpdnext } },
+        { MODKEY,                       XK_r,           spawn,          {.v = msearch } },
         { MODKEY,                       XK_n,           spawn,          {.v = ncmpcpp } },
-	{ MODKEY,                       XK_n,           view,           {.ui = 1 << 1} }, 
-        { MODKEY,                       XK_e,           spawn,          {.v = mutt } },
-	{ MODKEY,                       XK_e,           view,           {.ui = 1 << 2} }, 
-        { MODKEY,                       XK_i,           spawn,          {.v = weechat } },
-	{ MODKEY,                       XK_i,           view,           {.ui = 1 << 2} }, 
-        { MODKEY,                       XK_g,           spawn,          {.v = chromium } },
-	{ MODKEY,                       XK_g,           view,           {.ui = 1 << 0} }, 
-        { MODKEY|ShiftMask,             XK_y,           spawn,          {.v = dmenuwatchvideo } },
-        { MODKEY,                       XK_y,           spawn,          {.v = watchvideo } },
-	{ MODKEY,                       XK_y,           view,           {.ui = 1 << 1} }, 
         { MODKEY,                       XK_u,           spawn,          {.v = utub } },
-	{ MODKEY,                       XK_u,           view,           {.ui = 1 << 1} }, 
-        { MODKEY|ShiftMask,             XK_l,           spawn,          {.v = lock } },
         { MODKEY,                       XK_Next,        spawn,          {.v = voldn } },
         { MODKEY,                       XK_Prior,       spawn,          {.v = volup } },
         { 0,                            0x1008ff11,     spawn,          {.v = voldn } },
         { 0,                            0x1008ff13,     spawn,          {.v = volup } },
-        { MODKEY,                       XK_Delete,      spawn,          {.v = power } },
-        { MODKEY,                       XK_s,           spawn,          {.v = desktop } },
-        { MODKEY,                       XK_d,           spawn,          {.v = vifm } },
-        { MODKEY,                       XK_r,           spawn,          {.v = msearch } },
-	{ MODKEY,                       XK_r,           view,           {.ui = 1 << 1} }, 
-	{ MODKEY,                       XK_w,           spawn,          {.v = minbrowser } },
-        { MODKEY,                       XK_q,           spawn,          {.v = htop } },
-	TAGKEYS(                        XK_1,           0)
-	TAGKEYS(                        XK_2,           1)
-	TAGKEYS(                        XK_3,           2)
-	TAGKEYS(                        XK_4,           3)
-	TAGKEYS(                        XK_5,           4)
-	{ MODKEY|ShiftMask,             XK_q,           quit,           {0} },
-	{ MODKEY|ControlMask,           XK_q,           spawn,          {.v = kill } },
-	{ MODKEY,                       XK_Down,        spawn,          {.v = transdown } },
-	{ MODKEY,                       XK_Up,          spawn,          {.v = transup } },
-	{ MODKEY,                       XK_o,           spawn,          {.v = compositing } },
-        { MODKEY,                       XK_Left,        cycle,          {.i = -1} },
-        { MODKEY,                       XK_Right,       cycle,          {.i = +1} },
-        { MODKEY|ShiftMask,             XK_Left,        tagcycle,       {.i = -1} },
-        { MODKEY|ShiftMask,             XK_Right,       tagcycle,       {.i = +1} },
+        { MODKEY,                       XK_y,           spawn,          {.v = watchvideo } },
 };
 
 /* mouse binds */

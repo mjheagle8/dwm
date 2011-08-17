@@ -25,16 +25,21 @@ static const Bool topbar            = True;     /* False means bottom bar */
 static const char *tags[] = { "web", "media", "msg", "4", "5"};
 static const int taglayouts[] = {2, 2, 0, 0, 0};
 
+/* tag definitions for rules */
+#define WEB 1 << 0
+#define MEDIA 1 << 1
+#define CHAT 1 << 2
+
 /* rules */
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Chromium", NULL,       NULL,       1 << 0,       False,       -1 },
-	{ NULL,       NULL,       "ncmpcpp",  1 << 1,       False,       -1 },
-	{ NULL,       NULL,       "utub",     1 << 1,       False,       -1 },
-	{ NULL,       NULL,       "fmplayer", 1 << 1,       False,       -1 },
-	{ NULL,       NULL,       "msearch",  1 << 1,       False,       -1 },
-	{ NULL,       NULL,       "mutt",     1 << 2,       False,       -1 },
-	{ NULL,       NULL,       "weechat",  1 << 2,       False,       -1 },
+	{ "Chromium", NULL,       NULL,       WEB,       False,       -1 },
+	{ NULL,       NULL,       "ncmpcpp",  MEDIA,     False,       -1 },
+	{ NULL,       NULL,       "utub",     MEDIA,     False,       -1 },
+	{ NULL,       NULL,       "fmplayer", MEDIA,     False,       -1 },
+	{ NULL,       NULL,       "msearch",  MEDIA,     False,       -1 },
+	{ NULL,       NULL,       "mutt",     CHAT,      False,       -1 },
+	{ NULL,       NULL,       "weechat",  CHAT,      False,       -1 },
 };
 
 /* layout(s) */

@@ -32,14 +32,15 @@ static const int taglayouts[] = {2, 2, 0, 0, 0};
 
 /* rules */
 static const Rule rules[] = {
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Chromium", NULL,       NULL,       WEB,       False,       -1 },
-	{ NULL,       NULL,       "ncmpcpp",  MEDIA,     False,       -1 },
-	{ NULL,       NULL,       "utub",     MEDIA,     False,       -1 },
-	{ NULL,       NULL,       "fmplayer", MEDIA,     False,       -1 },
-	{ NULL,       NULL,       "msearch",  MEDIA,     False,       -1 },
-	{ NULL,       NULL,       "mutt",     CHAT,      False,       -1 },
-	{ NULL,       NULL,       "weechat",  CHAT,      False,       -1 },
+	/* class      instance    title       tags      isfloating   monitor */
+	{ "Chromium", NULL,       NULL,       WEB,      False,          -1 },
+	{ NULL,       NULL,       "ncmpcpp",  MEDIA,    False,          -1 },
+	{ NULL,       NULL,       "utub",     MEDIA,    False,          -1 },
+	{ NULL,       NULL,       "fmplayer", MEDIA,    False,          -1 },
+	{ NULL,       NULL,       "msearch",  MEDIA,    False,          -1 },
+	{ NULL,       NULL,       "mutt",     CHAT,     False,          -1 },
+	{ NULL,       NULL,       "weechat",  CHAT,     False,          -1 },
+        { "qemu-system-x86_64", NULL, NULL,   0,        True,           -1 },
 };
 
 /* layout(s) */

@@ -90,14 +90,14 @@ static const char *vifm[] = { "urxvtc", "-e", "vifm", NULL};
 
 /* media utils */
 static const char *dmenuwatchvideo[] = {"/home/mhiggin5/programs/bash/flash-video-dmenu.sh", NULL };
-static const char *medianext[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-n", NULL };
-static const char *mediaprev[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-p", NULL };
-static const char *mediastop[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-s", NULL };
-static const char *mediatoggle[] = { "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-t", NULL };
-static const char *mpdnext[] = { "mpc", "next", NULL };
-static const char *mpdprev[] = { "mpc", "prev", NULL };
-static const char *mpdstop[] = { "mpc", "stop", NULL };
-static const char *mpdtoggle[] = { "mpc", "toggle", NULL };
+static const char *medianext[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-n", NULL };
+static const char *mediaprev[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-p", NULL };
+static const char *mediastop[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-s", NULL };
+static const char *mediatoggle[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-t", NULL };
+static const char *mpdnext[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "mpc", "next", NULL };
+static const char *mpdprev[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "mpc", "prev", NULL };
+static const char *mpdstop[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "mpc", "stop", NULL };
+static const char *mpdtoggle[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "mpc", "toggle", NULL };
 static const char *msearch[] = { "urxvtc", "-title", "msearch", "-e", "/home/mhiggin5/programs/python/msearch.py", "-k", NULL };
 static const char *ncmpcpp[] = { "/home/mhiggin5/programs/bash/launch.sh", "ncmpcpp", NULL };
 static const char *utub[] = { "urxvtc", "-title", "utub", "-e", "utub-curses", NULL };

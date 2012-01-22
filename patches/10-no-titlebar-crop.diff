@@ -1,0 +1,40 @@
+diff --git a/dwm.c b/dwm.c
+index 05dcb73..c8c5156 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -159,7 +159,7 @@ static void die(const char *errstr, ...);
+ static Monitor *dirtomon(int dir);
+ static void drawbar(Monitor *m);
+ static void drawbars(void);
+-static void drawcoloredtext(char *text);
++static void drawcoloredtext(Monitor *m, char *text);
+ static void drawsquare(Bool filled, Bool empty, unsigned long col[ColLast]);
+ static void drawtext(const char *text, unsigned long col[ColLast], Bool pad);
+ static void enternotify(XEvent *e);
+@@ -780,7 +780,7 @@ drawbar(Monitor *m) {
+                 dc.x = x;
+                 dc.w = m->ww - x;
+         }
+-        drawcoloredtext(stext);
++        drawcoloredtext(m, stext);
+ 	if((dc.w = dc.x - x) > bh) {
+ 		dc.x = x;
+ 		if(m->sel) {
+@@ -804,7 +804,7 @@ drawbars(void) {
+ }
+ 
+ void
+-drawcoloredtext(char *text) {
++drawcoloredtext(Monitor *m, char *text) {
+ 	Bool first=True;
+ 	char *buf = text, *ptr = buf, c = 1;
+ 	unsigned long *col = dc.colors[0];
+@@ -816,7 +816,7 @@ drawcoloredtext(char *text) {
+ 		c=*ptr;
+ 		*ptr=0;
+ 		if( i ) {
+-			dc.w = selmon->ww - dc.x;
++			dc.w = m->ww - dc.x;
+ 			drawtext(buf, col, first);
+ 			dc.x += textnw(buf, i) + textnw(&c,1);
+ 			if( first ) dc.x += ( dc.font.ascent + dc.font.descent ) / 2;

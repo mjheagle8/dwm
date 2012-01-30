@@ -21,9 +21,6 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
-/* tagging */
-static const char *tags[] = { "web", "media", "msg", "4", "5"};
-static const int taglayouts[] = {2, 2, 0, 0, 0};
 
 /* tag definitions for rules */
 #define WEB 1 << 0
@@ -45,6 +42,7 @@ static const Rule rules[] = {
 
 /* layout(s) */
 static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
+static const int nmaster      = 1; /* number of clients in master area */
 static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -52,9 +50,12 @@ static const Layout layouts[] = {
 	{ "[F]",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
  	{ "[B]",      bstack },
- 	{ "[b]",      bstackhoriz },
         { .symbol = NULL,   .arrange = NULL    },
 };
+
+/* tagging */
+static const char *tags[] = { "web", "media", "msg", "4", "5"};
+static const int taglayouts[] = {2, 2, 0, 0, 0};
 
 /* key definitions */
 #define MODKEY Mod4Mask

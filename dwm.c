@@ -784,17 +784,13 @@ drawbar(Monitor *m) {
 	drawtext(m->ltsymbol, dc.colors[0], False);
 	dc.x += dc.w;
 	x = dc.x;
-	if(m == selmon) { /* status is only drawn on selected monitor */
-		dc.w = textnw(stext, strlen(stext));
-		dc.x = m->ww - dc.w;
-		if(dc.x < x) {
-			dc.x = x;
-			dc.w = m->ww - x;
-		}
-		drawcoloredtext(m, stext);
-	}
-	else
-		dc.x = m->ww;
+        dc.w = textnw(stext, strlen(stext));
+        dc.x = m->ww - dc.w;
+        if(dc.x < x) {
+                dc.x = x;
+                dc.w = m->ww - x;
+        }
+        drawcoloredtext(m, stext);
 	if((dc.w = dc.x - x) > bh) {
 		dc.x = x;
 		if(m->sel) {
@@ -2117,7 +2113,7 @@ void
 updatestatus(void) {
 	if(!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
 		strcpy(stext, "dwm-"VERSION);
-	drawbar(selmon);
+	drawbars();
 }
 
 void

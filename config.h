@@ -54,8 +54,14 @@ static const Layout layouts[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "web", "media", "msg", "4", "5"};
-static const int taglayouts[] = {2, 2, 0, 0, 0};
+static const Tag tags[] = {
+        /* name       layout           mfact    nmaster */
+        { "web",      &layouts[2],     -1,      -1 },
+        { "media",    &layouts[2],     -1,      -1 },
+        { "msg",      &layouts[0],     -1,      -1 },
+        { "4",        &layouts[0],     -1,      -1 },
+        { "5",        &layouts[0],     -1,      -1 },
+};
 
 /* key definitions */
 #define MODKEY Mod4Mask

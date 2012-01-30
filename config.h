@@ -91,7 +91,7 @@ static const char *desktop[] = { "urxvtc", "-title", "ssh", "-e", "/home/mhiggin
 static const char *htop[] = { "urxvtc", "-title", "htop", "-e", "htop", NULL};
 static const char *mutt[] = { "/home/mhiggin5/programs/bash/launch.sh", "mutt", NULL };
 static const char *weechat[] = { "/home/mhiggin5/programs/bash/launch.sh","weechat", NULL };
-static const char *chromium[] = { "/home/mhiggin5/programs/bash/launch.sh", "chromium", NULL };
+static const char *browser[] = { "/home/mhiggin5/programs/bash/launch.sh", "chromium", NULL };
 static const char *minbrowser[] = { "luakit", NULL };
 static const char *vifm[] = { "urxvtc", "-e", "vifm", NULL};
 
@@ -131,10 +131,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period,      focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,       tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,      tagmon,         {.i = +1 } },
+        { Mod1Mask,                     XK_Tab,         focusmon,       {.i = +1 } },
+        { Mod1Mask|ShiftMask,           XK_Tab,         tagmon,         {.i = +1 } },
         /* window control binds */
 	{ MODKEY,                       XK_j,           focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,           focusstack,     {.i = -1 } },
-	{ Mod1Mask,                     XK_Tab,         focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_h,           setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,           setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return,      zoom,           {0} },
@@ -166,7 +167,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,       togglefloating, {0} },
         /* launcher binds */
         { MODKEY,                       XK_a,           spawn,          {.v = calendar } },
-        { MODKEY,                       XK_g,           spawn,          {.v = chromium } },
+        { MODKEY,                       XK_g,           spawn,          {.v = browser } },
         { MODKEY,                       XK_s,           spawn,          {.v = desktop } },
 	{ MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },
         { MODKEY,                       XK_q,           spawn,          {.v = htop } },

@@ -15,7 +15,7 @@ static const char colors[NUMCOLORS][ColLast][8] = {
 };
 
 /* dwm vars */
-static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
+static const char font[]            = "-Misc-Terminusmodx.Icons-Medium-R-Normal--12-120-72-72-C-60-ISO8859-1";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -46,10 +46,10 @@ static const int nmaster      = 1; /* number of clients in master area */
 static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[T]",      tile },    /* first entry is default */
-	{ "[F]",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
- 	{ "[B]",      bstack },
+	{ "þ",      tile },    /* first entry is default */
+	{ "ý",      NULL },    /* no layout function means floating behavior */
+	{ "ÿ",      monocle },
+ 	{ "ü",      bstack },
         { .symbol = NULL,   .arrange = NULL    },
 };
 
@@ -97,6 +97,7 @@ static const char *vifm[] = { "urxvtc", "-e", "vifm", NULL};
 
 /* media utils */
 static const char *dmenuwatchvideo[] = {"/home/mhiggin5/programs/bash/flash-video-dmenu.sh", NULL };
+static const char *dzenbar[] = { "/home/mhiggin5/programs/bash/dzenbar.sh", NULL };
 static const char *medianext[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-n", NULL };
 static const char *mediaprev[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-p", NULL };
 static const char *mediastop[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-s", NULL };
@@ -204,6 +205,7 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button3,        prevlayout,     {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+        { ClkStatusText,        0,              Button1,        spawn,          {.v = dzenbar } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },

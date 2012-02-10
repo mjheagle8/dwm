@@ -70,6 +70,9 @@ static const Tag tags[] = {
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+#define MOVEWITH(KEY, CMD, WORKSPACEMASK) \
+        { MODKEY,                       KEY,      view,           {.ui = 1 << WORKSPACEMASK} }, \
+        { MODKEY,                       KEY,      spawn,          {.v = CMD } },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -150,13 +153,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,         view,           {0} },
 	{ MODKEY,                       XK_0,           view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,           tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_n,           view,           {.ui = 1 << 1} }, /* move with ncmpcpp launch */
-	{ MODKEY,                       XK_e,           view,           {.ui = 1 << 2} }, /* move with mail launch */
-	{ MODKEY,                       XK_i,           view,           {.ui = 1 << 2} }, /* move with chat launch */
-	{ MODKEY,                       XK_g,           view,           {.ui = 1 << 0} }, /* move with browser launch */
-	{ MODKEY,                       XK_y,           view,           {.ui = 1 << 1} }, /* move with fmplayer launch */
-	{ MODKEY,                       XK_u,           view,           {.ui = 1 << 1} }, /* move with utub launch */
-	{ MODKEY,                       XK_r,           view,           {.ui = 1 << 1} }, /* move with msearch launch */
         { MODKEY,                       XK_Left,        cycle,          {.i = -1} },
         { MODKEY,                       XK_Right,       cycle,          {.i = +1} },
         { MODKEY|ShiftMask,             XK_Left,        tagcycle,       {.i = -1} },
@@ -169,15 +165,15 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_space,       togglefloating, {0} },
         /* launcher binds */
         { MODKEY,                       XK_a,           spawn,          {.v = calendar } },
-        { MODKEY,                       XK_g,           spawn,          {.v = browser } },
+        MOVEWITH(                       XK_g,           browser,        0)
         { MODKEY,                       XK_s,           spawn,          {.v = desktop } },
 	{ MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },
         { MODKEY,                       XK_q,           spawn,          {.v = htop } },
 	{ MODKEY,                       XK_w,           spawn,          {.v = minbrowser } },
-        { MODKEY,                       XK_e,           spawn,          {.v = mutt } },
+        MOVEWITH(                       XK_e,           mutt,           2)
 	{ MODKEY,                       XK_Return,      spawn,          {.v = termcmd } },
         { MODKEY,                       XK_d,           spawn,          {.v = vifm } },
-        { MODKEY,                       XK_i,           spawn,          {.v = weechat } },
+        MOVEWITH(                       XK_i,           weechat,        2)
         /* media keybinds */
         { MODKEY|ShiftMask,             XK_y,           spawn,          {.v = dmenuwatchvideo } },
         { MODKEY,                       XK_z,           spawn,          {.v = mediaprev } },
@@ -188,14 +184,14 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_c,           spawn,          {.v = mpdtoggle } },
         { MODKEY|ShiftMask,             XK_v,           spawn,          {.v = mpdstop } },
         { MODKEY|ShiftMask,             XK_b,           spawn,          {.v = mpdnext } },
-        { MODKEY,                       XK_r,           spawn,          {.v = msearch } },
-        { MODKEY,                       XK_n,           spawn,          {.v = ncmpcpp } },
-        { MODKEY,                       XK_u,           spawn,          {.v = utub } },
+        MOVEWITH(                       XK_r,           msearch,        1)
+        MOVEWITH(                       XK_n,           ncmpcpp,        1)
+        MOVEWITH(                       XK_u,           utub,           1)
         { MODKEY,                       XK_Next,        spawn,          {.v = voldn } },
         { MODKEY,                       XK_Prior,       spawn,          {.v = volup } },
         { 0,                            0x1008ff11,     spawn,          {.v = voldn } },
         { 0,                            0x1008ff13,     spawn,          {.v = volup } },
-        { MODKEY,                       XK_y,           spawn,          {.v = watchvideo } },
+        MOVEWITH(                       XK_y,           watchvideo,     1)
 };
 
 /* mouse binds */

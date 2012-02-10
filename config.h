@@ -118,6 +118,7 @@ static Key keys[] = {
 	/* modifier                     key             function             argument */
         /* general dwm control binds */
 	{ MODKEY|ShiftMask,             XK_t,           togglebar,      {0} },
+        { MODKEY,                       XK_x,           spawn,          {.v = dzenbar } },
 	{ MODKEY|ShiftMask,             XK_k,           killclient,     {0} },
 	{ Mod1Mask,                     XK_F4,          killclient,     {0} },
         { MODKEY|ShiftMask,             XK_l,           spawn,          {.v = lock } },

@@ -31,6 +31,7 @@ static const Bool topbar            = True;     /* False means bottom bar */
 static const Rule rules[] = {
 	/* class      instance    title       tags      isfloating   monitor */
 	{ "Chromium", NULL,       NULL,       WEB,      False,          -1 },
+        { "Firefox",  NULL,       NULL,       WEB,      False,          -1 },
 	{ NULL,       NULL,       "ncmpcpp",  MEDIA,    False,          -1 },
 	{ NULL,       NULL,       "utub",     MEDIA,    False,          -1 },
 	{ NULL,       NULL,       "fmplayer", MEDIA,    False,          -1 },
@@ -94,7 +95,7 @@ static const char *desktop[] = { "urxvtc", "-title", "ssh", "-e", "/home/mhiggin
 static const char *htop[] = { "urxvtc", "-title", "htop", "-e", "htop", NULL};
 static const char *mutt[] = { "/home/mhiggin5/programs/bash/launch.sh", "mutt", NULL };
 static const char *weechat[] = { "/home/mhiggin5/programs/bash/launch.sh","weechat", NULL };
-static const char *browser[] = { "/home/mhiggin5/programs/bash/launch.sh", "chromium", NULL };
+static const char *browser[] = { "/home/mhiggin5/programs/bash/launch.sh", "firefox", NULL };
 static const char *minbrowser[] = { "luakit", NULL };
 static const char *vifm[] = { "urxvtc", "-e", "vifm", NULL};
 

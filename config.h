@@ -97,7 +97,7 @@ static const char *mutt[] = { "/home/mhiggin5/programs/bash/launch.sh", "mutt", 
 static const char *weechat[] = { "/home/mhiggin5/programs/bash/launch.sh","weechat", NULL };
 static const char *browser[] = { "/home/mhiggin5/programs/bash/launch.sh", "firefox", NULL };
 static const char *minbrowser[] = { "luakit", NULL };
-static const char *vifm[] = { "urxvtc", "-e", "vifm", NULL};
+static const char *fm[] = { "urxvtc", "-e", "ranger", NULL};
 
 /* media utils */
 static const char *dmenuwatchvideo[] = {"/home/mhiggin5/programs/bash/flash-video-dmenu.sh", NULL };
@@ -173,7 +173,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_w,           spawn,          {.v = minbrowser } },
         MOVEWITH(                       XK_e,           mutt,           2)
 	{ MODKEY,                       XK_Return,      spawn,          {.v = termcmd } },
-        { MODKEY,                       XK_d,           spawn,          {.v = vifm } },
+        { MODKEY,                       XK_d,           spawn,          {.v = fm } },
         MOVEWITH(                       XK_i,           weechat,        2)
         /* media keybinds */
         { MODKEY|ShiftMask,             XK_y,           spawn,          {.v = dmenuwatchvideo } },

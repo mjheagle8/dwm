@@ -90,7 +90,7 @@ static const char *transdown[] = { "transset-df", "-p", "--min", "0.2", "--dec",
 static const char *transup[] = { "transset-df", "-p", "--inc", "0.1", NULL };
 
 /* programs */
-static const char *calendar[] = { "urxvtc", "-title", "calendar", "-e", "/home/mhiggin5/.config/tmux/calendar.sh", NULL };
+static const char *tasknc[] = { "urxvtc", "-title", "tasknc", "-e", "/home/mhiggin5/programs/c/tasknc/tasknc", NULL };
 static const char *desktop[] = { "urxvtc", "-title", "ssh", "-e", "/home/mhiggin5/programs/bash/ssh-arch-phoenix.sh", NULL };
 static const char *htop[] = { "urxvtc", "-title", "htop", "-e", "htop", NULL};
 static const char *mutt[] = { "/home/mhiggin5/programs/bash/launch.sh", "mutt", NULL };
@@ -165,7 +165,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_space,       nextlayout,     {0} },
 	{ MODKEY|ShiftMask,             XK_space,       togglefloating, {0} },
         /* launcher binds */
-        { MODKEY,                       XK_a,           spawn,          {.v = calendar } },
+        { MODKEY,                       XK_a,           spawn,          {.v = tasknc } },
         MOVEWITH(                       XK_g,           browser,        0)
         { MODKEY,                       XK_s,           spawn,          {.v = desktop } },
 	{ MODKEY,                       XK_p,           spawn,          {.v = dmenucmd } },

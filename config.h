@@ -96,7 +96,7 @@ static const char *htop[] = { "urxvtc", "-title", "htop", "-e", "htop", NULL};
 static const char *mutt[] = { "/home/mhiggin5/programs/bash/launch.sh", "mutt", NULL };
 static const char *weechat[] = { "/home/mhiggin5/programs/bash/launch.sh","weechat", NULL };
 static const char *browser[] = { "/home/mhiggin5/programs/bash/launch.sh", "firefox", NULL };
-static const char *minbrowser[] = { "luakit", NULL };
+static const char *minbrowser[] = { "dwb", NULL };
 static const char *fm[] = { "urxvtc", "-e", "ranger", NULL};
 
 /* media utils */

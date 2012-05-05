@@ -15,7 +15,7 @@ static const char colors[NUMCOLORS][ColLast][8] = {
 };
 
 /* dwm vars */
-static const char font[]            = "-Misc-Terminusmodx.Icons-Medium-R-Normal--12-120-72-72-C-60-ISO8859-1";
+static const char font[]            = "-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*" "," "-*-termsyn-medium-*-*-*-11-*-*-*-*-*-iso8859-2";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -47,21 +47,21 @@ static const int nmaster      = 1; /* number of clients in master area */
 static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "þ",      tile },    /* first entry is default */
-	{ "ý",      NULL },    /* no layout function means floating behavior */
-	{ "ÿ",      monocle },
- 	{ "ü",      bstack },
+	{ "",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
+	{ "",      monocle },
+ 	{ "",      bstack },
         { .symbol = NULL,   .arrange = NULL    },
 };
 
 /* tagging */
 static const Tag tags[] = {
         /* name       layout           mfact    nmaster */
-        { "web",      &layouts[2],     -1,      -1 },
-        { "media",    &layouts[2],     -1,      -1 },
-        { "msg",      &layouts[0],     -1,      -1 },
-        { "4",        &layouts[0],     -1,      -1 },
-        { "5",        &layouts[0],     -1,      -1 },
+        { "",        &layouts[2],     -1,      -1 },
+        { "",        &layouts[2],     -1,      -1 },
+        { "",        &layouts[0],     -1,      -1 },
+        { "",        &layouts[0],     -1,      -1 },
+        { "",        &layouts[0],     -1,      -1 },
 };
 
 /* key definitions */

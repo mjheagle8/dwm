@@ -177,14 +177,14 @@ static Key keys[] = {
         MOVEWITH(                       XK_i,           weechat,        2)
         /* media keybinds */
         { MODKEY|ShiftMask,             XK_y,           spawn,          {.v = dmenuwatchvideo } },
-        { MODKEY,                       XK_z,           spawn,          {.v = mediaprev } },
-        { MODKEY,                       XK_c,           spawn,          {.v = mediatoggle } },
-        { MODKEY,                       XK_v,           spawn,          {.v = mediastop } },
-        { MODKEY,                       XK_b,           spawn,          {.v = medianext } },
-        { MODKEY|ShiftMask,             XK_z,           spawn,          {.v = mpdprev } },
-        { MODKEY|ShiftMask,             XK_c,           spawn,          {.v = mpdtoggle } },
-        { MODKEY|ShiftMask,             XK_v,           spawn,          {.v = mpdstop } },
-        { MODKEY|ShiftMask,             XK_b,           spawn,          {.v = mpdnext } },
+        { MODKEY,                       XK_z,           spawn,          {.v = mpdprev } },
+        { MODKEY,                       XK_c,           spawn,          {.v = mpdtoggle } },
+        { MODKEY,                       XK_v,           spawn,          {.v = mpdstop } },
+        { MODKEY,                       XK_b,           spawn,          {.v = mpdnext } },
+        { MODKEY|ShiftMask,             XK_z,           spawn,          {.v = mediaprev } },
+        { MODKEY|ShiftMask,             XK_c,           spawn,          {.v = mediatoggle } },
+        { MODKEY|ShiftMask,             XK_v,           spawn,          {.v = mediastop } },
+        { MODKEY|ShiftMask,             XK_b,           spawn,          {.v = medianext } },
         MOVEWITH(                       XK_r,           msearch,        1)
         MOVEWITH(                       XK_n,           ncmpcpp,        1)
         MOVEWITH(                       XK_u,           utub,           1)

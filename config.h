@@ -106,6 +106,7 @@ static const char *medianext[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "
 static const char *mediaprev[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-p", NULL };
 static const char *mediastop[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-s", NULL };
 static const char *mediatoggle[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-t", NULL };
+static const char *menucmd[] = { "/home/mhiggin5/builds/dwm/mygtkmenu/buildgtkmenu.sh", NULL };
 static const char *mpdnext[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "mpc", "next", NULL };
 static const char *mpdprev[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "mpc", "prev", NULL };
 static const char *mpdstop[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "mpc", "stop", NULL };
@@ -202,8 +203,10 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        nextlayout,     {0} },
 	{ ClkLtSymbol,          0,              Button3,        prevlayout,     {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
+        { ClkWinTitle,          0,              Button3,        spawn,          {.v = menucmd } },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
         { ClkStatusText,        0,              Button1,        spawn,          {.v = dzenbar } },
+        { ClkStatusText,        0,              Button3,        spawn,          {.v = menucmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
@@ -211,4 +214,5 @@ static Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+        { ClkRootWin,           0,              Button3,        spawn,          {.v = menucmd } },
 };

@@ -28,9 +28,9 @@ item = _chromium
 cmd = xdotool key super+g
 icon = /usr/share/icons/hicolor/16x16/apps/chromium.png
 
-item = _dwb
+item = _luakit
 cmd = xdotool key super+w
-icon = /usr/share/pixmaps/dwb.png
+icon = /usr/share/pixmaps/luakit.png
 
 SEPARATOR
 
@@ -40,7 +40,7 @@ icon = /usr/share/icons/gnome/16x16/apps/terminal.png
 
 Submenu = t_ermapps
     icon = /usr/share/icons/gnome/16x16/apps/terminal.png
-    
+
     item = ncmpcpp
     cmd = xdotool key super+n
     icon = NULL

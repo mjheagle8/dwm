@@ -98,6 +98,7 @@ static const char *fm[] = { "urxvtc", "-e", "ranger", NULL};
 
 /* media utils */
 static const char *dmenuwatchvideo[] = {"/home/mhiggin5/programs/bash/flash-video-dmenu.sh", NULL };
+static const char *mediainfo[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-n", NULL };
 static const char *mediastop[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-s", NULL };
 static const char *mediatoggle[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-t", NULL };
 static const char *mpdnext[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "mpc", "next", NULL };
@@ -169,6 +170,7 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_y,           spawn,          {.v = dmenuwatchvideo } },
         { MODKEY,                       XK_z,           spawn,          {.v = mpdprev } },
         { MODKEY,                       XK_c,           spawn,          {.v = mpdtoggle } },
+        { MODKEY,                       XK_x,           spawn,          {.v = mediainfo } },
         { MODKEY,                       XK_v,           spawn,          {.v = mpdstop } },
         { MODKEY,                       XK_b,           spawn,          {.v = mpdnext } },
         { MODKEY|ShiftMask,             XK_c,           spawn,          {.v = mediatoggle } },

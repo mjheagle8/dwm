@@ -85,6 +85,8 @@ static const char *menucmd[] = { "/home/mhiggin5/builds/dwm/mygtkmenu/buildgtkme
 static const char *lock[] = { "xautolock", "-locknow", NULL };
 static const char *power[] = { "/home/mhiggin5/programs/bash/exit.sh", NULL };
 static const char *kill[] = { "/home/mhiggin5/programs/bash/killdwm", NULL };
+static const char *clearnotify[] = { "killall", "-SIGUSR1", "dunst", NULL };
+static const char *clearnotify2[] = { "notify-send", "notifications cleared", NULL };
 
 /* programs */
 static const char *tasknc[] = { "urxvtc", "-title", "tasknc", "-e", "/home/mhiggin5/programs/c/tasknc/tasknc", NULL };
@@ -187,6 +189,8 @@ static Key keys[] = {
         { 0,                            0x1008ff11,     spawn,          {.v = voldn } },
         { 0,                            0x1008ff13,     spawn,          {.v = volup } },
         MOVEWITH(                       XK_y,           watchvideo,     1)
+        { MODKEY,                       XK_grave,       spawn,          {.v = clearnotify } },
+        { MODKEY,                       XK_grave,       spawn,          {.v = clearnotify2 } },
 };
 
 /* mouse binds */

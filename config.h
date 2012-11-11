@@ -99,12 +99,14 @@ static const char *fm[] = { "urxvtc", "-e", "ranger", NULL};
 /* media utils */
 static const char *dmenuwatchvideo[] = {"/home/mhiggin5/programs/bash/flash-video-dmenu.sh", NULL };
 static const char *mediainfo[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-y", NULL };
-static const char *mediastop[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-s", NULL };
-static const char *mediatoggle[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-t", NULL };
-static const char *mpdnext[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "mpc", "next", NULL };
-static const char *mpdprev[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "mpc", "prev", NULL };
-static const char *mpdstop[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "mpc", "stop", NULL };
-static const char *mpdtoggle[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "mpc", "toggle", NULL };
+static const char *medianext[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-yn", NULL };
+static const char *mediaprev[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-yp", NULL };
+static const char *mediastop[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-ys", NULL };
+static const char *mediatoggle[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-yt", NULL };
+static const char *mpdnext[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-myn", NULL };
+static const char *mpdprev[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-myp", NULL };
+static const char *mpdstop[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-mys", NULL };
+static const char *mpdtoggle[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-myt", NULL };
 static const char *msearch[] = { "urxvtc", "-title", "msearch", "-e", "/home/mhiggin5/programs/python/msearch.py", "-k", NULL };
 static const char *ncmpcpp[] = { "/home/mhiggin5/programs/bash/launch.sh", "ncmpcpp", NULL };
 static const char *utub[] = { "urxvtc", "-title", "utub", "-e", "utub-curses", NULL };
@@ -175,6 +177,8 @@ static Key keys[] = {
         { MODKEY,                       XK_b,           spawn,          {.v = mpdnext } },
         { MODKEY|ShiftMask,             XK_c,           spawn,          {.v = mediatoggle } },
         { MODKEY|ShiftMask,             XK_v,           spawn,          {.v = mediastop } },
+        { MODKEY|ShiftMask,             XK_z,           spawn,          {.v = mediaprev } },
+        { MODKEY|ShiftMask,             XK_b,           spawn,          {.v = medianext } },
         MOVEWITH(                       XK_r,           msearch,        1)
         MOVEWITH(                       XK_n,           ncmpcpp,        1)
         MOVEWITH(                       XK_u,           utub,           1)

@@ -98,7 +98,7 @@ static const char *fm[] = { "urxvtc", "-e", "ranger", NULL};
 
 /* media utils */
 static const char *dmenuwatchvideo[] = {"/home/mhiggin5/programs/bash/flash-video-dmenu.sh", NULL };
-static const char *mediainfo[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-n", NULL };
+static const char *mediainfo[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-y", NULL };
 static const char *mediastop[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-s", NULL };
 static const char *mediatoggle[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "/home/mhiggin5/programs/c/mediactrl/mediactrl", "-t", NULL };
 static const char *mpdnext[] = { "/home/mhiggin5/programs/bash/mediacmd.sh", "mpc", "next", NULL };

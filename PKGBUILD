@@ -5,7 +5,7 @@
 # Customized by: mjheagle <mjheagle8@gmail.com>
 
 pkgname=dwm
-pkgver=6.0
+pkgver=$(git hist | wc -l)
 pkgrel=1
 pkgdesc="A dynamic window manager for X"
 url="http://dwm.suckless.org"
@@ -19,7 +19,6 @@ md5sums=()
 
 build() {
     cd $startdir
-    pwd
 
     make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11 || return 1
     make PREFIX=/usr/local DESTDIR=$pkgdir install || return 1

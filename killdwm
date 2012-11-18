@@ -1,0 +1,2 @@
+#!/bin/bash
+kill $(ps aux | grep startdwm | grep sh | egrep -o ' [0-9]+' | head -n 1 | cut -d ' ' -f 2)

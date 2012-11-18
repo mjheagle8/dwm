@@ -28,9 +28,9 @@ item = _chromium
 cmd = xdotool key super+g
 icon = /usr/share/icons/hicolor/16x16/apps/chromium.png
 
-item = _luakit
+item = _dwb
 cmd = xdotool key super+w
-icon = /usr/share/pixmaps/luakit.png
+icon = /usr/share/pixmaps/dwb.png
 
 SEPARATOR
 

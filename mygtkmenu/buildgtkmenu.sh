@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MENUFILE="$HOME/builds/dwm/mygtkmenu/menu"
+MENUFILE="$HOME/tmp/.mygtkmenu"
 
 # get mpd status
 MPDSTATUSLINES=$(mpc status)

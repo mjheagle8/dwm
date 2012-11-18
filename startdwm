@@ -1,5 +1,5 @@
  #!/bin/bash
  while true; do
      # Log stderror to a file
-     ~/builds/dwm/dwm 2> ~/tmp/.dwm.log
+     dwm 2> ~/tmp/.dwm.log
  done

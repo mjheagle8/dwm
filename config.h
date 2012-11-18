@@ -81,10 +81,10 @@ static const Tag tags[] = {
 /* commands */
 static const char *termcmd[] = { "urxvtc",     NULL };
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
-static const char *menucmd[] = { "/home/mhiggin5/builds/dwm/mygtkmenu/buildgtkmenu.sh", NULL };
+static const char *menucmd[] = { "buildgtkmenu.sh", NULL };
 static const char *lock[] = { "xautolock", "-locknow", NULL };
 static const char *power[] = { "/home/mhiggin5/programs/bash/exit.sh", NULL };
-static const char *kill[] = { "/home/mhiggin5/programs/bash/killdwm", NULL };
+static const char *kill[] = { "killdwm", NULL };
 static const char *clearnotify[] = { "killall", "-SIGUSR1", "dunst", NULL };
 static const char *clearnotify2[] = { "notify-send", "notifications cleared", NULL };
 

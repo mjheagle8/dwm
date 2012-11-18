@@ -2,6 +2,7 @@
 # Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
 # Contributor: Dag Odenhall <dag.odenhall@gmail.com>
 # Contributor: Grigorios Bouzakis <grbzks@gmail.com>
+# Customized by: mjheagle <mjheagle8@gmail.com>
 
 pkgname=dwm
 pkgver=5.7.2
@@ -13,22 +14,16 @@ license=('MIT')
 options=(zipman)
 depends=('libx11')
 install=dwm.install
-source=(http://code.suckless.org/dl/dwm/dwm-$pkgver.tar.gz \
-	config.h
-	dwm.desktop)
-md5sums=('a0b8a799ddc5034dd8a818c9bd76f3a3'
-         'dc9b535baf445d1c12854d1a2a56449f'
-         '939f403a71b6e85261d09fc3412269ee')
+source=()
+md5sums=()
 
 build() {
-  cd $srcdir/$pkgname-$pkgver
+    cd $startdir
+    pwd
 
-  cp $srcdir/config.h config.h
+    make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11 || return 1
+    make PREFIX=/usr/local DESTDIR=$pkgdir install || return 1
 
-  make X11INC=/usr/include/X11 X11LIB=/usr/lib/X11 || return 1
-  make PREFIX=/usr DESTDIR=$pkgdir install || return 1
-
-  install -m644 -D LICENSE $pkgdir/usr/share/licenses/$pkgname/LICENSE && \
-  install -m644 -D README $pkgdir/usr/share/doc/$pkgname/README && \
-  install -m644 -D $srcdir/dwm.desktop $pkgdir//etc/X11/sessions/dwm.desktop
+    install -m644 -D LICENSE $pkgdir/usr/share/licenses/$pkgname/LICENSE && \
+    install -m644 -D README $pkgdir/usr/share/doc/$pkgname/README
 }

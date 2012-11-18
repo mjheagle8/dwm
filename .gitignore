@@ -2,3 +2,5 @@ dwm
 dwm.o
 .hg
 .hgtags
+dwm-*
+pkg

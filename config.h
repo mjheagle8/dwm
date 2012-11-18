@@ -100,15 +100,15 @@ static const char *fm[] = { "urxvtc", "-e", "ranger", NULL};
 
 /* media utils */
 static const char *dmenuwatchvideo[] = {"/home/mhiggin5/programs/bash/flash-video-dmenu.sh", NULL };
-static const char *mediainfo[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-y", NULL };
-static const char *medianext[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-yn", NULL };
-static const char *mediaprev[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-yp", NULL };
-static const char *mediastop[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-ys", NULL };
-static const char *mediatoggle[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-yt", NULL };
-static const char *mpdnext[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-myn", NULL };
-static const char *mpdprev[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-myp", NULL };
-static const char *mpdstop[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-mys", NULL };
-static const char *mpdtoggle[] = { "/home/mhiggin5/programs/c/mmcs/mmcs", "-myt", NULL };
+static const char *mediainfo[] = { "mmcs", "-y", NULL };
+static const char *medianext[] = { "mmcs", "-yn", NULL };
+static const char *mediaprev[] = { "mmcs", "-yp", NULL };
+static const char *mediastop[] = { "mmcs", "-ys", NULL };
+static const char *mediatoggle[] = { "mmcs", "-yt", NULL };
+static const char *mpdnext[] = { "mmcs", "-myn", NULL };
+static const char *mpdprev[] = { "mmcs", "-myp", NULL };
+static const char *mpdstop[] = { "mmcs", "-mys", NULL };
+static const char *mpdtoggle[] = { "mmcs", "-myt", NULL };
 static const char *msearch[] = { "urxvtc", "-title", "msearch", "-e", "/home/mhiggin5/programs/python/msearch.py", "-k", NULL };
 static const char *ncmpcpp[] = { "/home/mhiggin5/programs/bash/launch.sh", "ncmpcpp", NULL };
 static const char *utub[] = { "urxvtc", "-title", "utub", "-e", "utub-curses", NULL };
